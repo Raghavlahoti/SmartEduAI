@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="SmartEdu AI - AI-powered learning assistant for students, educators, and lifelong learners."/>
+  <title>SmartEdu AI - Learning Assistant</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Marked library for parsing markdown responses -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- DOMPurify for XSS sanitization -->
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" aria-label="Sidebar navigation">
+      <div class="sidebar-header">
+        <h2>SmartEdu AI</h2>
+      </div>
+
+      <button class="new-chat-btn" id="newChatBtn" aria-label="Create new chat">+ New Chat</button>
+
+      <nav class="previous-chats" id="previous-chats" aria-label="Chat history">
+        <h3>Previous Chat History</h3>
+        <div id="chat-list" role="list"></div>
+      </nav>
+    </aside>
+
+    <main class="main" aria-label="Main chat console">
+      <header class="chat-header">
+        <h1>Transforming Education with AI</h1>
+      </header>
+
+      <section class="chat-window" id="chat-window" aria-live="polite" aria-label="Chat message history">
+        <div class="message bot-msg">Hello! Ask me anything.</div>
+      </section>
+
+      <section class="chat-input-area" aria-label="Chat input controls">
+        <div class="chat-input">
+          <input 
+            type="text" 
+            id="userInput" 
+            placeholder="Type a message or prompt..." 
+            aria-label="Type your message"
+            autocomplete="off"
+          />
+          <button id="sendBtn" aria-label="Send message">Send</button>
+          <button id="voiceBtn" aria-label="Start voice recognition" title="Voice input">
+            <svg class="mic-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" y1="19" x2="12" y2="23"></line>
+              <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="action-buttons" aria-label="Quick prompt helpers">
+          <button data-action="Translate">Translate</button>
+          <button data-action="Generate Questions">Generate Questions</button>
+          <button data-action="Explain">Explain</button>
+          <button data-action="Code Explanation">Code Explanation</button>
+          <button data-action="Assignment">Assignment</button>
+          <button data-action="Get Answer">Get Answer</button>
+          <button data-action="Summarize">Summarize</button>
+          <button data-action="Easy Language">Easy Language</button>
+          <button data-action="Meaning">Meaning</button>
+        </nav>
+      </section>
+
+      <footer>
+        <p>SmartEdu AI &copy; All rights reserved.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
