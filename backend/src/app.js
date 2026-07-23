@@ -64,9 +64,12 @@ app.use(express.static(path.join(__dirname, "../../frontend")));
 
 // API Routes & Rate Limiting
 app.get("/api/health", getHealthStatus);
+app.get("/chat", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../frontend/chat.html"));
+});
 app.post("/chat", apiRateLimiter, validateChatPrompt, handleChatPrompt);
 
-// Fallback SPA route
+// Fallback SPA route (default entry point: landing page)
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../../frontend/index.html"));
 });

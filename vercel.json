@@ -10,7 +10,13 @@
   "routes": [
     {
       "src": "/chat",
+      "methods": ["POST"],
       "dest": "https://edupilot-ai-backend.onrender.com/chat"
+    },
+    {
+      "src": "/chat",
+      "methods": ["GET"],
+      "dest": "frontend/chat.html"
     },
     {
       "src": "/api/(.*)",

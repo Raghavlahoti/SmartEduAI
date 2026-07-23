@@ -177,10 +177,12 @@ EduPilot-AI/
 │   ├── package.json
 │   └── server.js                   # Entry point
 ├── frontend/
-│   ├── index.html                  # Main application shell
-│   ├── login.html                  # Login page
-│   ├── script.js                   # All frontend logic
-│   └── styles.css                  # Design system & component styles
+│   ├── index.html                  # Landing page (Default entry point: /)
+│   ├── chat.html                   # AI Chat Console application (/chat)
+│   ├── script.js                   # All chat console frontend logic
+│   ├── landing.js                  # Landing page animations & interactivity
+│   ├── styles.css                  # Chat console design system & component styles
+│   └── landing.css                 # Landing page styles
 ├── docs/
 │   └── screenshots/                # Add application screenshots here
 ├── .github/

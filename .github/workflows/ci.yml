@@ -52,6 +52,7 @@ jobs:
       - name: Verify frontend files exist
         run: |
           test -f frontend/index.html  && echo "index.html OK"  || (echo "ERROR: index.html missing" && exit 1)
+          test -f frontend/chat.html   && echo "chat.html OK"   || (echo "ERROR: chat.html missing" && exit 1)
           test -f frontend/styles.css  && echo "styles.css OK"  || (echo "ERROR: styles.css missing" && exit 1)
           test -f frontend/script.js   && echo "script.js OK"   || (echo "ERROR: script.js missing" && exit 1)
 
