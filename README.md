@@ -1,4 +1,7 @@
+## 🌐 Live Demo
 
+- **Live App:** https://edu-pilot-ai-gamma.vercel.app/
+- **Backend API:** https://edupilot-ai-gbm5.onrender.com
 <div align="center">
 
 <img src="docs/assets/readme-banner.png" alt="EduPilot AI README Banner" width="100%" />
