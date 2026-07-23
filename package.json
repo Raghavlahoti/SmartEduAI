@@ -1,0 +1,15 @@
+{
+  "name": "edupilot-ai-monorepo",
+  "version": "1.0.0",
+  "description": "EduPilot AI — Production Ready AI Learning Platform",
+  "private": true,
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
+    "install:backend": "cd backend && npm install",
+    "build": "echo 'Frontend static build ready'"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

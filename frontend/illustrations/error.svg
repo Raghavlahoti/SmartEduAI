@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="errorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F87171" />
+      <stop offset="100%" stop-color="#EF4444" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1C2130" />
+      <stop offset="100%" stop-color="#0F1117" />
+    </linearGradient>
+    <filter id="errorGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#EF4444" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow -->
+  <circle cx="200" cy="140" r="95" fill="#EF4444" opacity="0.06" />
+
+  <!-- Base Grid Platform -->
+  <ellipse cx="200" cy="235" rx="120" ry="20" fill="#141720" opacity="0.9" />
+  <ellipse cx="200" cy="235" rx="120" ry="20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" />
+
+  <!-- Recalibration Pulse Ring (Broken) -->
+  <circle cx="200" cy="140" r="75" fill="none" stroke="rgba(239,68,68,0.2)" stroke-width="2" stroke-dasharray="10 20 40 20" />
+
+  <!-- Main Geometric Error Emblem Shield -->
+  <g filter="url(#errorGlow)">
+    <!-- Hexagonal Shield Outer Rim -->
+    <path d="M 200 65 L 260 100 L 260 170 L 200 205 L 140 170 L 140 100 Z" fill="url(#shieldGrad)" stroke="#EF4444" stroke-width="3" stroke-linejoin="round" />
+
+    <!-- Inner Warning Symbol (Exclamation mark / Disrupted Circuit) -->
+    <path d="M 200 100 L 200 145" stroke="url(#errorGrad)" stroke-width="6" stroke-linecap="round" />
+    <circle cx="200" cy="168" r="4" fill="#EF4444" />
+
+    <!-- Disrupted Connection Vectors -->
+    <path d="M 125 135 L 140 135 M 260 135 L 275 135" stroke="#EF4444" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+    <circle cx="115" cy="135" r="3" fill="#EF4444" opacity="0.6" />
+    <circle cx="285" cy="135" r="3" fill="#EF4444" opacity="0.6" />
+  </g>
+
+  <!-- Floating Warning Glitch Particles -->
+  <path d="M 120 85 L 126 91 M 126 85 L 120 91" stroke="#EF4444" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+  <path d="M 275 190 L 281 196 M 281 190 L 275 196" stroke="#EF4444" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+  <circle cx="290" cy="80" r="3" fill="#F87171" opacity="0.6" />
+  <circle cx="105" cy="180" r="2.5" fill="#EF4444" opacity="0.5" />
+</svg>

@@ -1,0 +1,88 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend:
+    name: Backend — Lint & Syntax Check
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check Node.js syntax (server entry point)
+        run: node --check server.js
+
+      - name: Check Node.js syntax (all source files)
+        run: |
+          find src -name "*.js" -print0 | xargs -0 -I{} node --check {}
+
+      - name: Verify environment variable documentation
+        run: |
+          echo "Checking .env.example exists and is non-empty..."
+          test -s .env.example && echo ".env.example OK" || (echo "ERROR: .env.example missing or empty" && exit 1)
+
+  frontend:
+    name: Frontend — Static Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify frontend files exist
+        run: |
+          test -f frontend/index.html  && echo "index.html OK"  || (echo "ERROR: index.html missing" && exit 1)
+          test -f frontend/styles.css  && echo "styles.css OK"  || (echo "ERROR: styles.css missing" && exit 1)
+          test -f frontend/script.js   && echo "script.js OK"   || (echo "ERROR: script.js missing" && exit 1)
+
+      - name: Check for console.log left in production script.js
+        run: |
+          count=$(grep -c "console\.log" frontend/script.js || true)
+          echo "Found $count console.log statements"
+          # Warn but do not fail — debug logs are acceptable during development
+          if [ "$count" -gt 0 ]; then
+            echo "::warning file=frontend/script.js::$count console.log statement(s) found. Consider removing before production."
+          fi
+
+  docker:
+    name: Docker — Build Check
+    runs-on: ubuntu-latest
+    # Only run on pushes to main (not every PR) to save runner minutes
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: Dockerfile
+          push: false
+          tags: edupilot-ai:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

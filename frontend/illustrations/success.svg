@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ADE80" />
+      <stop offset="100%" stop-color="#22C55E" />
+    </linearGradient>
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1C2130" />
+      <stop offset="100%" stop-color="#0F1117" />
+    </linearGradient>
+    <filter id="successGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#22C55E" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Radiant Glow -->
+  <circle cx="200" cy="140" r="105" fill="#22C55E" opacity="0.07" />
+
+  <!-- Base Grid Platform -->
+  <ellipse cx="200" cy="235" rx="130" ry="20" fill="#141720" opacity="0.9" />
+  <ellipse cx="200" cy="235" rx="130" ry="20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" />
+
+  <!-- Background Starburst Rays -->
+  <g opacity="0.25" stroke="#4ADE80" stroke-width="1.5" stroke-dasharray="6 6">
+    <line x1="200" y1="50" x2="200" y2="30" />
+    <line x1="200" y1="230" x2="200" y2="250" />
+    <line x1="90" y1="140" x2="70" y2="140" />
+    <line x1="310" y1="140" x2="330" y2="140" />
+    <line x1="120" y1="60" x2="105" y2="45" />
+    <line x1="280" y1="220" x2="295" y2="235" />
+    <line x1="280" y1="60" x2="295" y2="45" />
+    <line x1="120" y1="220" x2="105" y2="235" />
+  </g>
+
+  <!-- Main Geometric Success Emblem -->
+  <g filter="url(#successGlow)">
+    <!-- Outer Octagon / Starburst Badge -->
+    <polygon points="200,70 242,87 270,120 270,160 242,193 200,210 158,193 130,160 130,120 158,87" fill="url(#badgeBg)" stroke="#22C55E" stroke-width="3" stroke-linejoin="round" />
+
+    <!-- Emerald Inner Ring -->
+    <circle cx="200" cy="140" r="50" fill="none" stroke="url(#emeraldGrad)" stroke-width="2.5" opacity="0.4" />
+
+    <!-- Checkmark Path -->
+    <path d="M 172 140 L 192 160 L 232 120" fill="none" stroke="url(#emeraldGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Celebratory Floating Sparks & Diamonds -->
+  <polygon points="120,90 123,96 120,102 117,96" fill="#4ADE80" />
+  <polygon points="280,90 283,96 280,102 277,96" fill="#38BDF8" />
+  <polygon points="110,170 113,176 110,182 107,176" fill="#A78BFA" />
+  <polygon points="290,170 293,176 290,182 287,176" fill="#4ADE80" />
+  <circle cx="150" cy="65" r="3" fill="#38BDF8" opacity="0.8" />
+  <circle cx="250" cy="65" r="3.5" fill="#4ADE80" opacity="0.8" />
+</svg>

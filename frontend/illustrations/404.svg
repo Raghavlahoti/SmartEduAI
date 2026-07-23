@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="textGrad404" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C4B5FD" />
+      <stop offset="50%" stop-color="#7C5CFC" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <filter id="glow404" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#7C5CFC" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <style>
+    .text-404 {
+      font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+      font-weight: 900;
+      font-size: 110px;
+      letter-spacing: -0.05em;
+      fill: url(#textGrad404);
+    }
+  </style>
+
+  <!-- Ambient Glow -->
+  <circle cx="200" cy="140" r="105" fill="#7C5CFC" opacity="0.08" />
+
+  <!-- Base Grid Platform -->
+  <ellipse cx="200" cy="240" rx="135" ry="22" fill="#141720" opacity="0.9" />
+  <ellipse cx="200" cy="240" rx="135" ry="22" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" />
+
+  <!-- Orbiting Trajectory Path -->
+  <ellipse cx="200" cy="140" rx="150" ry="50" fill="none" stroke="rgba(124,92,252,0.25)" stroke-width="2" stroke-dasharray="8 8" transform="rotate(-12, 200, 140)" />
+
+  <!-- Large 404 Geometric Text Overlay -->
+  <g filter="url(#glow404)">
+    <!-- First '4' -->
+    <text x="75" y="170" class="text-404">4</text>
+    
+    <!-- Central Lost Beacon replacement for '0' -->
+    <g transform="translate(200, 125)">
+      <circle cx="0" cy="0" r="42" fill="#0F1117" stroke="url(#textGrad404)" stroke-width="5" />
+      <!-- Lost Compass Needle -->
+      <path d="M 0 -26 L 12 0 L 0 26 L -12 0 Z" fill="none" stroke="#38BDF8" stroke-width="2.5" transform="rotate(45)" />
+      <circle cx="0" cy="0" r="6" fill="#A78BFA" />
+    </g>
+
+    <!-- Second '4' -->
+    <text x="250" y="170" class="text-404">4</text>
+  </g>
+
+  <!-- Floating Probe / Drifting Satellite Dot -->
+  <g transform="translate(320, 80)">
+    <circle cx="0" cy="0" r="8" fill="#1C2130" stroke="#38BDF8" stroke-width="2" />
+    <circle cx="0" cy="0" r="3" fill="#38BDF8" />
+    <line x1="-14" y1="0" x2="-8" y2="0" stroke="#38BDF8" stroke-width="1.5" />
+    <line x1="8" y1="0" x2="14" y2="0" stroke="#38BDF8" stroke-width="1.5" />
+  </g>
+
+  <!-- Floating Stars -->
+  <circle cx="90" cy="65" r="3" fill="#A78BFA" opacity="0.8" />
+  <circle cx="280" cy="55" r="2.5" fill="#38BDF8" opacity="0.7" />
+  <circle cx="60" cy="200" r="3" fill="#7C5CFC" opacity="0.6" />
+</svg>

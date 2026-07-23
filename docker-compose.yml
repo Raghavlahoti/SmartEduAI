@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  edupilot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: edupilot-app
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - HOST=0.0.0.0
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - DB_HOST=edupilot-db
+      - DB_PORT=3306
+      - DB_USER=edupilot_user
+      - DB_PASSWORD=edupilot_password
+      - DB_NAME=edupilot_db
+    depends_on:
+      edupilot-db:
+        condition: service_healthy
+
+  edupilot-db:
+    image: mysql:8.0
+    container_name: edupilot-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: edupilot_db
+      MYSQL_USER: edupilot_user
+      MYSQL_PASSWORD: edupilot_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysql_data:

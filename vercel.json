@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "name": "edupilot-ai",
+  "builds": [
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/chat",
+      "dest": "https://edupilot-ai-backend.onrender.com/chat"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "https://edupilot-ai-backend.onrender.com/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
+  ]
+}

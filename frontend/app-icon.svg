@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Canvas Gradient -->
+    <linearGradient id="appBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161922" />
+      <stop offset="50%" stop-color="#0F1117" />
+      <stop offset="100%" stop-color="#09090E" />
+    </linearGradient>
+
+    <!-- Border Highlight -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.2)" />
+      <stop offset="50%" stop-color="rgba(124, 92, 252, 0.3)" />
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.05)" />
+    </linearGradient>
+
+    <!-- Main Spark Gradient -->
+    <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C4B5FD" />
+      <stop offset="35%" stop-color="#7C5CFC" />
+      <stop offset="70%" stop-color="#5D3CF2" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <!-- Secondary Facet Gradient -->
+    <linearGradient id="facetGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#A78BFA" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Core Ambient Glow -->
+    <radialGradient id="ambientGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(124, 92, 252, 0.35)" />
+      <stop offset="60%" stop-color="rgba(56, 189, 248, 0.12)" />
+      <stop offset="100%" stop-color="rgba(9, 9, 14, 0)" />
+    </radialGradient>
+
+    <!-- Icon Glow Filter -->
+    <filter id="iconDropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#7C5CFC" flood-opacity="0.4" />
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- App Icon Base Squircle -->
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#appBgGrad)" />
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="none" stroke="url(#borderGrad)" stroke-width="2.5" />
+
+  <!-- Ambient Glow Behind Symbol -->
+  <circle cx="256" cy="256" r="200" fill="url(#ambientGlow)" />
+
+  <!-- Grid Lines (Subtle Linear Tech Vibe) -->
+  <g opacity="0.04" stroke="#FFFFFF" stroke-width="1">
+    <line x1="256" y1="32" x2="256" y2="480" />
+    <line x1="32" y1="256" x2="480" y2="256" />
+    <circle cx="256" cy="256" r="160" fill="none" />
+    <circle cx="256" cy="256" r="100" fill="none" />
+  </g>
+
+  <!-- The Pilot Spark Emblem -->
+  <g filter="url(#iconDropShadow)">
+
+    <!-- Primary 4-Point Compass Spark (Navigation + Intelligence) -->
+    <path fill="url(#sparkGrad)" d="
+      M 256 104
+      C 274 180, 332 238, 408 256
+      C 332 274, 274 332, 256 408
+      C 238 332, 180 274, 104 256
+      C 180 238, 238 180, 256 104
+      Z
+    " />
+
+    <!-- Ascending Pilot Arrow Facet (Growth Wing) -->
+    <path fill="url(#facetGrad)" opacity="0.4" d="
+      M 256 104
+      C 274 180, 332 238, 408 256
+      L 256 256
+      Z
+    " />
+    
+    <path fill="#FFFFFF" opacity="0.25" d="
+      M 256 256
+      L 104 256
+      C 180 238, 238 180, 256 104
+      Z
+    " />
+
+    <!-- Inner Synapse Ring & Node -->
+    <circle cx="256" cy="256" r="32" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.6" />
+    <circle cx="256" cy="256" r="20" fill="#FFFFFF" />
+    <circle cx="256" cy="256" r="10" fill="#7C5CFC" />
+
+    <!-- Directional Trajectory Dots (North-East Growth) -->
+    <circle cx="340" cy="172" r="6" fill="#38BDF8" opacity="0.9" />
+    <circle cx="372" cy="140" r="4" fill="#A78BFA" opacity="0.7" />
+    <circle cx="396" cy="116" r="2.5" fill="#FFFFFF" opacity="0.5" />
+  </g>
+</svg>

@@ -1,15 +1,43 @@
 # Dependencies
 node_modules/
-package-lock.json
 
-# Environment variables
+# Environment variables — never commit secrets
+backend/.env
 .env
+*.env
 
 # Logs
 *.log
+logs/
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# IDE & OS files
-.vscode/
+# OS files
 .DS_Store
 Thumbs.db
+Desktop.ini
+
+# IDE and editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Build artefacts
+dist/
+build/
+.cache/
+
+# Docker volumes
+mysql_data/
+
+# Tesseract language files (large binaries)
+*.traineddata
+
+# Test coverage
+coverage/
+.nyc_output/

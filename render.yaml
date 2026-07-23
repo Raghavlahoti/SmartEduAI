@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: edupilot-ai-backend
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: openrouter/free
+      - key: APP_URL
+        value: https://edupilot-ai.vercel.app
+      - key: CORS_ORIGIN
+        value: https://edupilot-ai.vercel.app,*.vercel.app
+      - key: DB_HOST
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        value: edupilot_db
+      - key: DB_PORT
+        value: 3306
+      - key: DB_SSL
+        value: true
+      - key: DB_SSL_REJECT_UNAUTHORIZED
+        value: false

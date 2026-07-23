@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1C2130" />
+      <stop offset="100%" stop-color="#0F1117" />
+    </linearGradient>
+    <linearGradient id="slashGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <filter id="offlineGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#F59E0B" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow -->
+  <circle cx="200" cy="140" r="90" fill="#F59E0B" opacity="0.05" />
+
+  <!-- Base Grid Platform -->
+  <ellipse cx="200" cy="235" rx="125" ry="20" fill="#141720" opacity="0.9" />
+  <ellipse cx="200" cy="235" rx="125" ry="20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" />
+
+  <!-- Disconnected Wifi Signal Arcs -->
+  <path d="M 140 100 A 75 75 0 0 1 260 100" fill="none" stroke="#64748B" stroke-width="3" stroke-linecap="round" stroke-dasharray="12 12" opacity="0.4" />
+  <path d="M 160 120 A 50 50 0 0 1 240 120" fill="none" stroke="#64748B" stroke-width="3" stroke-linecap="round" opacity="0.3" />
+
+  <!-- Central Cloud Emblem with Slash -->
+  <g filter="url(#offlineGlow)">
+    <!-- Cloud Path -->
+    <path d="
+      M 145 175
+      H 255
+      A 35 35 0 0 0 265 106
+      A 45 45 0 0 0 180 95
+      A 40 40 0 0 0 135 140
+      A 30 30 0 0 0 145 175
+      Z
+    " fill="url(#cloudGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="2.5" stroke-linejoin="round" />
+
+    <!-- Disconnected Node Core -->
+    <circle cx="200" cy="145" r="10" fill="#181D2A" stroke="#F59E0B" stroke-width="2.5" />
+
+    <!-- Disconnection Slash Line -->
+    <line x1="130" y1="195" x2="270" y2="85" stroke="url(#slashGrad)" stroke-width="4.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Floating Disconnected Signal Particles -->
+  <circle cx="110" cy="110" r="3" fill="#F59E0B" opacity="0.6" />
+  <circle cx="290" cy="160" r="3.5" fill="#64748B" opacity="0.5" />
+  <line x1="95" y1="165" x2="105" y2="165" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+  <line x1="295" y1="105" x2="305" y2="105" stroke="#64748B" stroke-width="2" stroke-linecap="round" opacity="0.5" />
+</svg>
